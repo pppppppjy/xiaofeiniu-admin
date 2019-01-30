@@ -47,9 +47,17 @@ Vue.filter('curreny',(val)=>{
   //把int转换为xx.yy
   return '¥'+val.toFixed(2)
 })
+Vue.filter('tableStatus',(val)=>{
+  //把int转换为xx.yy
+  if(val == 1) return '空闲';
+  else if(val == 2) return '预订';
+  else if(val == 3) return '占用';
+  else return '其他';
+})
 
 new Vue({
   router,
-  store,
-  render: h => h(App)
+  store, //指定当前项目唯一的Vuex存储仓库对象,其中保存着可供所有组件共享的数据
+  render: h=> h(App) //根据APP组件创建<App></App>元素,挂载到#app内部
+  
 }).$mount('#app')
