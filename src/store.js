@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+
 //多组件所公用的公共存储仓库
 export default new Vuex.Store({  //sessionStorage.get(k)
   //公共数据读取方法:this.$store.state.adminName
