@@ -51,14 +51,13 @@ export default {
         inputValue:c.cname
       }).then(({value})=>{
            var url = this.$store.state.globalSettings.apiUrl+'/admin/category';
-        this.$axios.post(url,{cname:value}).then((res)=>{
+        this.$axios.put(url,{cid:c.cid,cname:value}).then((res)=>{
           if(res.data.code==200){
             //数据库中添加成功
             this.$message.success('类别添加成功!')
             //模型数据中添加存的类别
-            this.categoryList.push({cid:res.data.cid,cname:value});
+            this.categoryList[i].cname = value;
           }else{
-            
             this.$message.error('类别添加出错'+res.data.msg);
           }
         }).catch((err)=>{
